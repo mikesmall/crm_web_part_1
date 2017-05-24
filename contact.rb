@@ -1,9 +1,6 @@
 class Contact
-
   attr_reader :id
-
   attr_accessor :first_name, :last_name, :email, :note
-
   @@contacts = []
   @@id = 1
 
@@ -26,6 +23,8 @@ class Contact
 
   # This method should return all of the existing contacts
   def self.all
+    @@contacts
+    # from AM lesson code
   end
 
   # This method should accept an id as an argument
@@ -38,7 +37,6 @@ class Contact
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
   def update
-
   end
 
   # This method should work similarly to the find method above
@@ -46,22 +44,20 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by
-
   end
 
   # This method should delete all of the contacts
   def self.delete_all
-
   end
 
   def full_name
-
+    "#{first_name} #{last_name}"
+    # From AM lesson code
   end
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
-
   end
 
   # Feel free to add other methods here, if you need them.
