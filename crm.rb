@@ -2,8 +2,15 @@ require_relative 'contact.rb'
 
 class CRM
 
-  def initialize
+  def initialize(name)
+    @name = name # this is how the variable naming is normally done BTW
   end
+
+  def what_is_the_name_of_this_CRM_again
+    "Oh master, how could you forget? It was " + @name
+  end
+  #  I know I didn't need this, but I'm saving it for reference,
+  #  as I still find some basic things about Ruby a little confusing.
 
   def main_menu
     while true # repeat indefinitely
@@ -56,10 +63,8 @@ class CRM
 
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
-    puts "Who would you like to delete? Please enter their ID number."
-    person_to_delete = gets.to_i
     # variable seeks id match in @@contacts
-    Contact.find(@@id)
+    Contact.find(@id)
     # gets name association
     puts "You have chosen #{  }. Deleting now."
     # deletes instance from @@contacts
@@ -87,5 +92,5 @@ end
 
 # Test Output
 
-a_crm_app = CRM.new
+a_crm_app = CRM.new(@name)
 a_crm_app.main_menu
