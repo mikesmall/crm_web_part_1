@@ -56,7 +56,27 @@ class CRM
     Contact.create(first_name, last_name, email, note)
   end#add_new_contact
 
-  def modify_existing_contact
+  def modify_existing_contact(user_selected)
+    contact_to_edit = Contact.find
+    puts "Which of #{ result.first_name }'s attributes would you like to change?"
+    puts '[1] First Name'
+    puts '[2] Last Name'
+    puts '[3] Email'
+    puts '[4] Note'
+    case user_selected
+    when 1 then
+      puts "New first name:"
+      first_name = gets.chomp
+    when 2 then
+      puts "New last name:"
+      last_name = gets.chomp
+    when 3 then
+      puts "New Email:"
+      email = gets.chomp
+    when 4 then
+      puts "New Note:"
+      note = gets.chomp
+    end#case
     # As a user, when I enter the id of the user I want to modify I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
   end
@@ -64,12 +84,19 @@ class CRM
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
     # variable seeks id match in @@contacts
-    Contact.find(@id)
-    # gets name association
-    puts "You have chosen #{  }. Deleting now."
+    puts "Enter a contact id: "
+    id = gets.to_i
+    puts "You chose id number #{ id }."
+
+    contact = Contact.find
+
+    contact.delete
+    # Deletion code here
+
+    puts "Remaining contacts: #{ Contact.all }"
     # deletes instance from @@contacts
 
-  end
+    end
 
   def display_all_contacts
     # As a user, if I select display all I am then shown all of the contacts that exist.
