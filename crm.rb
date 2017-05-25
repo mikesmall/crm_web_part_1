@@ -32,13 +32,13 @@ class CRM
 
   def call_option(user_selected)
     case user_selected
-    when 1 then add_new_contact
-    when 2 then modify_existing_contact
-    # Finish off the rest for 3 through 6
-    when 3 then delete_contact
-    when 4 then display_all_contacts
-    when 5 then search_by_attribute
-    when 6 then exit_program
+      when 1 then add_new_contact
+      when 2 then modify_existing_contact
+      # Finish off the rest for 3 through 6
+      when 3 then delete_contact
+      when 4 then display_all_contacts
+      when 5 then search_by_attribute
+      when 6 then exit_program
     #  To be clear, the methods add_new_contact and modify_existing_contact
     #  haven't been implemented yet
     end#case
@@ -57,45 +57,19 @@ class CRM
   end#add_new_contact
 
   def modify_existing_contact(user_selected)
-    contact_to_edit = Contact.find
-    puts "Which of #{ result.first_name }'s attributes would you like to change?"
-    puts '[1] First Name'
-    puts '[2] Last Name'
-    puts '[3] Email'
-    puts '[4] Note'
-    case user_selected
-    when 1 then
-      puts "New first name:"
-      first_name = gets.chomp
-    when 2 then
-      puts "New last name:"
-      last_name = gets.chomp
-    when 3 then
-      puts "New Email:"
-      email = gets.chomp
-    when 4 then
-      puts "New Note:"
-      note = gets.chomp
-    end#case
+
+  contact = Contact.update
     # As a user, when I enter the id of the user I want to modify I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
   end
 
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
-    # variable seeks id match in @@contacts
-    puts "Enter a contact id: "
-    id = gets.to_i
-    puts "You chose id number #{ id }."
 
-    contact = Contact.find
-
-    contact.delete
-    # Deletion code here
+    contact = Contact.delete
 
     puts "Remaining contacts: #{ Contact.all }"
     # deletes instance from @@contacts
-
     end
 
   def display_all_contacts
@@ -106,8 +80,13 @@ class CRM
 
   def search_by_attribute
     # As a user, if search by attribute is selected, I am prompted to select which attribute I want to search by.
+    puts "What attribute would you like to search by?"
     # As a user, when I choose which attribute I want to search by, I am then prompted to enter the search term.
+        # As a user, when I enter the search term I am then presented with the first contact who matches my search.
+    contact = Contact.find_by
+
     # As a user, when I enter the search term I am then presented with the first contact who matches my search.
+
   end
 
   def exit_program

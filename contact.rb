@@ -31,6 +31,9 @@ class Contact
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
+    puts "Enter a contact id: "
+    id = gets.to_i
+    puts "You chose id number #{ id }."
     result = @@contacts.find { |contact| contact.id == id }
     return result
     puts "You found #{ result.first_name } #{ result.last_name }."
@@ -41,25 +44,25 @@ class Contact
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
   def update
-    puts "What would you like to update?"
-    puts "First Name -- press 'f'"
-    puts "Last Name -- press 'l'"
-    puts "Email -- press 'e'"
-    puts "Note -- press 'n'"
-    puts "(and then press Enter)"
-    choice = gets.chomp
-    if choice = f
-      first_name = gets.chomp
-    elsif choice = l
-      last_name = gets.chomp
-    elsif choice = e
-      email = gets.chomp
-    elsif choice = n
-      note = gets.chomp
-    else
-      puts "What?! Please choose from the letters above."
-      # I need a way to re-start this method here.
-    end#if
+    puts "Which of #{ result.first_name }'s attributes would you like to change?"
+    puts '[1] First Name'
+    puts '[2] Last Name'
+    puts '[3] Email'
+    puts '[4] Note'
+    case user_selected
+      when 1 then
+        puts "New first name:"
+        first_name = gets.chomp
+      when 2 then
+        puts "New last name:"
+        last_name = gets.chomp
+      when 3 then
+        puts "New Email:"
+        email = gets.chomp
+      when 4 then
+        puts "New Note:"
+        note = gets.chomp
+    end#case
   end#update
 
   # This method should work similarly to the find method above
