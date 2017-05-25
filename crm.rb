@@ -59,23 +59,25 @@ class CRM
   def modify_existing_contact(user_selected)
     # As a user, when I enter the id of the user I want to modify I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
+    Contact.find
     Contact.update
   end
 
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
+    Contact.find
     Contact.delete
   end
 
   def display_all_contacts
     # As a user, if I select display all I am then shown all of the contacts that exist.
-    puts "Here are all of your contacts: "
-    puts "#{ Contact.all }"
+    Contact.all
   end
 
   def search_by_attribute
     # As a user, if search by attribute is selected, I am prompted to select which attribute I want to search by.
     puts "What attribute would you like to search by?"
+
     # As a user, when I choose which attribute I want to search by, I am then prompted to enter the search term.
         # As a user, when I enter the search term I am then presented with the first contact who matches my search.
     Contact.find_by

@@ -4,18 +4,15 @@ class Contact
   @@contacts = []
   @@id = 1
 
-  # This method should initialize the contact's attributes
   def initialize(first_name, last_name, email, note)
     @first_name = first_name
     @last_name = last_name
     @email = email
     @note = note
     @id = @@id
-    @@id += 1 # this way the next contact will get a different id, one number higher
+    @@id += 1
   end
 
-  # This method should call the initializer,
-  # store the newly created contact, and then return it
   def self.create(first_name, last_name, email, note)
     # remember, we preface the method name with 'self.' if it is a class method
     new_contact = Contact.new(first_name, last_name, email, note)
@@ -23,13 +20,12 @@ class Contact
     return new_contact
   end#self.create
 
-  # This method should return all of the existing contacts
   def self.all
-    @@contacts # from AM lesson code
+    puts "Here are all of your contacts:"
+    puts " #{ @@contacts } "
   end#self.all
 
-  # This method should accept an id as an argument
-  # and return the contact who has that id
+  # This method should accept an id as an argument and return the contact who has that id
   def self.find(id)
     puts "Enter a contact id: "
     id = gets.to_i
@@ -65,11 +61,11 @@ class Contact
     end#case
   end#update
 
-  # This method should work similarly to the find method above
-  # but it should allow you to search for a contact using attributes other than id
-  # by specifying both the name of the attribute and the value
-  # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by
+    # This method should work similarly to the find method above
+    # but it should allow you to search for a contact using attributes other than id
+    # by specifying both the name of the attribute and the value
+    # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   end#self.find_by
 
   # This method should delete all of the contacts
@@ -81,11 +77,10 @@ class Contact
     "#{first_name} #{last_name}" # From AM lesson code
   end
 
-
   def delete
     # # This method should delete the contact
     # HINT: Check the Array class docs for built-in methods that might be useful here
-    puts "Remaining contacts: #{ Contact.all }"
+
     # deletes instance from @@contacts
   end
 
