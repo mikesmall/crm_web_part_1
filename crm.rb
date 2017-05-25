@@ -57,20 +57,15 @@ class CRM
   end#add_new_contact
 
   def modify_existing_contact(user_selected)
-
-  contact = Contact.update
     # As a user, when I enter the id of the user I want to modify I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
+    Contact.update
   end
 
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
-
-    contact = Contact.delete
-
-    puts "Remaining contacts: #{ Contact.all }"
-    # deletes instance from @@contacts
-    end
+    Contact.delete
+  end
 
   def display_all_contacts
     # As a user, if I select display all I am then shown all of the contacts that exist.
@@ -83,7 +78,7 @@ class CRM
     puts "What attribute would you like to search by?"
     # As a user, when I choose which attribute I want to search by, I am then prompted to enter the search term.
         # As a user, when I enter the search term I am then presented with the first contact who matches my search.
-    contact = Contact.find_by
+    Contact.find_by
 
     # As a user, when I enter the search term I am then presented with the first contact who matches my search.
 

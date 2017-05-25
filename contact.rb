@@ -81,9 +81,12 @@ class Contact
     "#{first_name} #{last_name}" # From AM lesson code
   end
 
-  # This method should delete the contact
-  # HINT: Check the Array class docs for built-in methods that might be useful here
+
   def delete
+    # # This method should delete the contact
+    # HINT: Check the Array class docs for built-in methods that might be useful here
+    puts "Remaining contacts: #{ Contact.all }"
+    # deletes instance from @@contacts
   end
 
   # Feel free to add other methods here, if you need them.
