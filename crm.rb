@@ -55,11 +55,21 @@ class CRM
   end
 
   def delete_contact
-    # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete.
+    # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
+    puts "Who would you like to delete? Please enter their ID number."
+    person_to_delete = gets.to_i
+    # variable seeks id match in @@contacts
+    Contact.find(@@id)
+    # gets name association
+    puts "You have chosen #{  }. Deleting now."
+    # deletes instance from @@contacts
+
   end
 
   def display_all_contacts
     # As a user, if I select display all I am then shown all of the contacts that exist.
+    puts "Here are all of your contacts: "
+    puts "#{ Contact.all }"
   end
 
   def search_by_attribute
@@ -71,7 +81,11 @@ class CRM
   def exit_program
     # As a user, if I select exit I am returned to the command line.
     abort('Exiting program. Bye!')
-  end
-
+  end#exit_program
 
 end
+
+# Test Output
+
+a_crm_app = CRM.new
+a_crm_app.main_menu

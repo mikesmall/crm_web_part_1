@@ -5,9 +5,11 @@ class Contact
   @@id = 1
 
   # This method should initialize the contact's attributes
-  def initialize(first_name, last_name)
+  def initialize(first_name, last_name, email, note)
     @first_name = first_name
     @last_name = last_name
+    @email = email
+    @note = note 
     @id = @@id
     @@id += 1 # this way the next contact will get a different id, one number higher
   end
@@ -28,7 +30,11 @@ class Contact
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
+  def self.find(id)
+    puts "Enter a contact id: "
+    target = gets.to_i
+    @@contacts.find { |contact| contact.id == target }
+    puts "You found #{ contact.full_name }."
   end#self.find
 
   # This method should allow you to specify
