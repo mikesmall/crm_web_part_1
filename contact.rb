@@ -28,20 +28,19 @@ class Contact
   end
 
   def update(attribute_to_modify)
-    case user_selected
-      when 1 then
-        puts "New first name:"
+    if attribute_to_modify = 1
+        puts "New first name: "
         self.first_name = gets.chomp
-      when 2 then
-        puts "New last name:"
+    elsif attribute_to_modify = 2
+        puts "New last name: "
         self.last_name = gets.chomp
-      when 3 then
-        puts "New Email:"
+    elsif attribute_to_modify = 3
+        puts "New email: "
         self.email = gets.chomp
-      when 4 then
-        puts "New Note:"
+    elsif attribute_to_modify = 4
+        puts "New note: "
         self.note = gets.chomp
-      end#case
+    end#if
   end#update
 
   def self.find(id)

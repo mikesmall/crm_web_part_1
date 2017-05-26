@@ -75,9 +75,12 @@ class CRM
     puts "What attribute do you want to change?"
     print_attribute_menu
     attribute_to_modify = gets.to_i
-    # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
+    # As a user, when I enter the attribute I want to
+    # change I am then prompted to enter a new value for the attribute.
     contact_to_modify.update(attribute_to_modify)
   end
+
+
 
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
