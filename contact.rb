@@ -27,7 +27,7 @@ class Contact
     @@contacts
   end
 
-  def update
+  def update(attribute_to_modify)
     case user_selected
       when 1 then
         puts "New first name:"

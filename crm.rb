@@ -66,7 +66,7 @@ class CRM
     Contact.create(first_name, last_name, email, note)
   end
 
-  def modify_existing_contact(user_selected)
+  def modify_existing_contact
     # As a user, when I enter the id of the user I want to modify
     puts "Which contact would you like to modify?"
     puts "Please type their ID number: "
@@ -76,7 +76,7 @@ class CRM
     print_attribute_menu
     attribute_to_modify = gets.to_i
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
-    Contact.update
+    contact_to_modify.update(attribute_to_modify)
   end
 
   def delete_contact
@@ -87,10 +87,11 @@ class CRM
     puts "You found #{ Contact.full_name }."
     puts "Delete for sure? (y/n):"
     delete_confirm = gets.chomp
-      if delete_confirm = "y"
+      if delete_confirm == "y"
         Contact.delete
-      elsif delete_confirm = "n"
-        puts "Too late! Just kidding. They're safe."
+        puts "Deleted!"
+      elsif delete_confirm == "n"
+        puts "Not deleted!"
       end#if
   end
 
