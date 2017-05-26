@@ -23,11 +23,6 @@ class Contact
     @@contacts
   end
 
-  # This method should accept an id as an argument and return the contact who has that id
-  def self.find(id)
-    @@contacts.find { |contact| contact.id == id }
-  end
-
   def update
     case user_selected
       when 1 then
@@ -45,14 +40,41 @@ class Contact
       end#case
   end#update
 
+  def self.find(id)
+    @@contacts.find { |contact| contact.id == id }
+  end
 
-  def self.find_by
-    # This method should work similarly to the find method above
-    # but it should allow you to search for a contact using attributes other than id
-    # by specifying both the name of the attribute and the value
-    # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
+  def self.find_by(attribute, value)
+  # This method should work similarly to the find method above
+  # but it should allow you to search for a contact using attributes other than id
+  # by specifying both the name of the attribute and the value
+  # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
+    if attribute == 1
+      @@contacts.each do |contact|
+        if value == contact.first_name
+          return contact
+        end#if
+      end#"top if"
+    elsif attribute == 2
+      @@contacts.each do |contact|
+        if value == contact.last_name
+          return contact
+        end#if
+      end#elsif
+    elsif attribute == 3
+      @@contacts.each do |contact|
+        if value == contact.email
+          return contact
+        end#if
+      end#ach
+    elsif attribute == 4 
+      @@contacts.each do |contact|
+        if value == contact.note
+          return contact
+        end#if
+      end#each
+    end#elsif
   end#self.find_by
-
 
   def delete()
     @@contacts.delete(self)

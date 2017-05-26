@@ -36,6 +36,13 @@ class CRM
     puts 'Enter a number: '
   end#print_main_menu
 
+  def print_attribute_menu
+    puts '[1] First Name'
+    puts '[2] Last Name'
+    puts '[3] Email'
+    puts '[4] Note'
+  end#print_attribute_menu
+
   def call_option(user_selected)
     case user_selected
       when 1 then add_new_contact
@@ -64,17 +71,13 @@ class CRM
 
   def modify_existing_contact(user_selected)
     # As a user, when I enter the id of the user I want to modify
-
     puts "Which contact would you like to modify?"
     puts "Please type their ID number: "
     contact_to_find = gets.to_i
     contact_to_modify = Contact.find(contact_to_find)
     # I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
     puts "What attribute do you want to change?"
-    puts '[1] First Name'
-    puts '[2] Last Name'
-    puts '[3] Email'
-    puts '[4] Note'
+    print_attribute_menu
     attribute_to_modify = gets.to_i
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
     Contact.update
@@ -94,7 +97,8 @@ class CRM
   def search_by_attribute
     # As a user, if search by attribute is selected, I am prompted to select which attribute I want to search by.
     puts "What attribute would you like to search by?"
-
+    print_attribute_menu 
+    attribute_to_modify = gets.to_i
     # As a user, when I choose which attribute I want to search by, I am then prompted to enter the search term.
         # As a user, when I enter the search term I am then presented with the first contact who matches my search.
     Contact.find_by
