@@ -1,4 +1,10 @@
+# This file is the program to be run.
+
+# Its methods CALL methods established in contact.rb
+
 require_relative 'contact.rb'
+require 'pry'
+# Use binding.pry above problem-lines to debug them.
 
 class CRM
 
@@ -54,12 +60,23 @@ class CRM
     print 'Enter a Note: '
     note = gets.chomp
     Contact.create(first_name, last_name, email, note)
-  end#add_new_contact
+  end
 
   def modify_existing_contact(user_selected)
-    # As a user, when I enter the id of the user I want to modify I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
+    # As a user, when I enter the id of the user I want to modify
+
+    puts "Which contact would you like to modify?"
+    puts "Please type their ID number: "
+    contact_to_find = gets.to_i
+    contact_to_modify = Contact.find(contact_to_find)
+    # I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
+    puts "What attribute do you want to change?"
+    puts '[1] First Name'
+    puts '[2] Last Name'
+    puts '[3] Email'
+    puts '[4] Note'
+    attribute_to_modify = gets.to_i
     # As a user, when I enter the attribute I want to change I am then prompted to enter a new value for the attribute.
-    Contact.find
     Contact.update
   end
 
