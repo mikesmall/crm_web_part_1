@@ -13,6 +13,10 @@ class Contact
     @@id += 1
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.create(first_name, last_name, email, note)
     new_contact = Contact.new(first_name, last_name, email, note)
     @@contacts << new_contact
@@ -67,7 +71,7 @@ class Contact
           return contact
         end#if
       end#ach
-    elsif attribute == 4 
+    elsif attribute == 4
       @@contacts.each do |contact|
         if value == contact.note
           return contact
@@ -83,12 +87,5 @@ class Contact
   def self.delete_all
     @@contacts.clear
   end
-
-
-  def full_name
-    "#{first_name} #{last_name}" # From AM lesson code
-  end
-
-  # Feel free to add other methods here, if you need them.
 
 end#Contact

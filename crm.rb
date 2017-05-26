@@ -47,13 +47,10 @@ class CRM
     case user_selected
       when 1 then add_new_contact
       when 2 then modify_existing_contact
-      # Finish off the rest for 3 through 6
       when 3 then delete_contact
       when 4 then display_all_contacts
       when 5 then search_by_attribute
       when 6 then exit_program
-    #  To be clear, the methods add_new_contact and modify_existing_contact
-    #  haven't been implemented yet
     end#case
   end#call_option
 
@@ -75,7 +72,6 @@ class CRM
     puts "Please type their ID number: "
     contact_to_find = gets.to_i
     contact_to_modify = Contact.find(contact_to_find)
-    # I am then prompted to select which attribute I want to change from the list 'first name', 'last name', 'email', or 'note'.
     puts "What attribute do you want to change?"
     print_attribute_menu
     attribute_to_modify = gets.to_i
@@ -85,36 +81,44 @@ class CRM
 
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
+    puts "Who would you like to delete? Please enter their ID number."
+    id = gets.to_i
     Contact.find
-    Contact.delete
+    puts "You found #{ Contact.full_name }."
+    puts "Delete for sure? (y/n):"
+    delete_confirm = gets.chomp
+      if delete_confirm = "y"
+        Contact.delete
+      elsif delete_confirm = "n"
+        puts "Too late! Just kidding. They're safe."
+      end#if
   end
 
   def display_all_contacts
-    # As a user, if I select display all I am then shown all of the contacts that exist.
+    puts "Here is your entire list of contacts:"
     Contact.all
   end
 
   def search_by_attribute
     # As a user, if search by attribute is selected, I am prompted to select which attribute I want to search by.
     puts "What attribute would you like to search by?"
-    print_attribute_menu 
-    attribute_to_modify = gets.to_i
+    print_attribute_menu
+    attribute = gets.to_i
     # As a user, when I choose which attribute I want to search by, I am then prompted to enter the search term.
+    puts "Got it. Now please enter your search term: "
+    value = gets.chomp
         # As a user, when I enter the search term I am then presented with the first contact who matches my search.
-    Contact.find_by
-
+    puts "You found:"
+    Contact.find_by(attribute, value)
     # As a user, when I enter the search term I am then presented with the first contact who matches my search.
-
-  end
+  end#search_by_attribute
 
   def exit_program
-    # As a user, if I select exit I am returned to the command line.
     abort('Exiting program. Bye!')
-  end#exit_program
+  end
 
 end
 
-# Test Output
-
+# Test Output:
 a_crm_app = CRM.new(@name)
 a_crm_app.main_menu
