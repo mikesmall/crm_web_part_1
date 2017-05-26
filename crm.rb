@@ -80,27 +80,30 @@ class CRM
     contact_to_modify.update(attribute_to_modify)
   end
 
-
-
   def delete_contact
     # As a user, if I select delete I am then prompted to enter the id of the contact I want to delete
     puts "Who would you like to delete? Please enter their ID number."
+
     id = gets.to_i
-    Contact.find
-    puts "You found #{ Contact.full_name }."
-    puts "Delete for sure? (y/n):"
+
+    contact_to_delete = Contact.find(id)
+
+    puts "Delete #{contact_to_delete.first_name} for sure? (y/n):"
+
     delete_confirm = gets.chomp
       if delete_confirm == "y"
-        Contact.delete
+        contact_to_delete.delete
         puts "Deleted!"
       elsif delete_confirm == "n"
         puts "Not deleted!"
       end#if
-  end
+  end#delete_contact
 
   def display_all_contacts
     puts "Here is your entire list of contacts:"
-    Contact.all
+    Contact.all.each do |contact|
+        puts "#{contact.first_name} #{contact.last_name} | #{contact.email} | #{contact.note} | ID number #{contact.id}"
+      end
   end
 
   def search_by_attribute

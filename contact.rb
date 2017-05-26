@@ -43,9 +43,11 @@ class Contact
     end#if
   end#update
 
+
   def self.find(id)
     @@contacts.find { |contact| contact.id == id }
   end
+
 
   def self.find_by(attribute, value)
   # This method should work similarly to the find method above
@@ -55,7 +57,7 @@ class Contact
     if attribute == 1
       @@contacts.each do |contact|
         if value == contact.first_name
-          return contact
+          return
         end#if
       end#"top if"
     elsif attribute == 2
@@ -79,7 +81,7 @@ class Contact
     end#elsif
   end#self.find_by
 
-  def delete()
+  def delete
     @@contacts.delete(self)
   end
 
