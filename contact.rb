@@ -28,16 +28,16 @@ class Contact
   end
 
   def update(attribute_to_modify)
-    if attribute_to_modify = 1
+    if attribute_to_modify == 1
         puts "New first name: "
         self.first_name = gets.chomp
-    elsif attribute_to_modify = 2
+    elsif attribute_to_modify == 2
         puts "New last name: "
         self.last_name = gets.chomp
-    elsif attribute_to_modify = 3
+    elsif attribute_to_modify == 3
         puts "New email: "
         self.email = gets.chomp
-    elsif attribute_to_modify = 4
+    elsif attribute_to_modify == 4
         puts "New note: "
         self.note = gets.chomp
     end#if
