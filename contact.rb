@@ -57,7 +57,7 @@ class Contact
     if attribute == 1
       @@contacts.each do |contact|
         if value == contact.first_name
-          return
+          return contact 
         end#if
       end#"top if"
     elsif attribute == 2
