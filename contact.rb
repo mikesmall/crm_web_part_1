@@ -12,6 +12,8 @@ class Contact < ActiveRecord::Base
 
   def full_name
     "#{ first_name } #{ last_name }"
-  end
+  end#full_name 
 
-end
+end#Contact
+
+Contact.auto_upgrade!
