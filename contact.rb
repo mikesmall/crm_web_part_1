@@ -1,4 +1,4 @@
-require 'active_record'
+require 'active_record' #, "=4.2.7"
 require 'mini_record'
 
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm.sqlite3')
@@ -12,7 +12,7 @@ class Contact < ActiveRecord::Base
 
   def full_name
     "#{ first_name } #{ last_name }"
-  end#full_name 
+  end#full_name
 
 end#Contact
 

@@ -134,8 +134,8 @@ class CRM
 end
 
 # Test Output:
-# a_crm_app = CRM.new(@name)
-# a_crm_app.main_menu
+a_crm_app = CRM.new(@name)
+a_crm_app.main_menu
 
 at_exit do
   ActiveRecord::Base.connection.close
