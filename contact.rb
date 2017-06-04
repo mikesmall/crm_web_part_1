@@ -1,6 +1,15 @@
+gem 'activerecord', '=4.2.7'
+
+require 'active_record'
+require 'mini_record'
+
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm.sqlite3')
+
 class Contact
+
   attr_reader :id
   attr_accessor :first_name, :last_name, :email, :note
+
   @@contacts = []
   @@id = 1
 
@@ -57,7 +66,7 @@ class Contact
     if attribute == 1
       @@contacts.each do |contact|
         if value == contact.first_name
-          return contact 
+          return contact
         end#if
       end#"top if"
     elsif attribute == 2
