@@ -5,6 +5,9 @@ get '/' do
   erb :index
 end#home
 
+after do
+  ActiveRecord::Base.connection.close
+end
 
 
 
