@@ -5,6 +5,11 @@ get '/' do
   erb :index
 end#home
 
+get '/contacts' do
+  @contacts = Contact.all
+  erb :contacts
+end#contacts
+
 after do
   ActiveRecord::Base.connection.close
 end

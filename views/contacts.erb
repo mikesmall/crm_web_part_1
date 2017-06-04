@@ -1,0 +1,28 @@
+<!-- In contacts.erb use this instance variable to iterate through the collection and display the first name, last name, email, and notes for each contact. What semantic HTML elements make sense to use when displaying this data? -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts</title>
+  </head>
+
+  <body>
+
+    <ul>
+      <% @contacts.each do |contact|%>
+        <li>
+          <p>
+          <%= "Name: #{contact.full_name}" %>
+          <br>
+          <%= "Email: #{contact.email}" %>
+          <br>
+          <%= "Note: #{contact.note}" %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+
+</html>
