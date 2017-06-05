@@ -12,7 +12,6 @@ get '/contacts' do
 end#contacts
 
 get '/contacts/new' do
-
   erb :add_contact
   # redirect to ('/add_contact')
 end#contacts/new
@@ -63,7 +62,17 @@ put '/contacts/:id' do
   else
     raise Sinatra::NotFound
   end#if
-end#contacts/:id
+end#contacts/id
+
+delete '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
+  if @contact
+    @contact.delete
+    redirect to('/contacts')
+  else
+    raise Sinatra::NotFound
+  end
+end
 
 # Keep this at the bottom:
 after do

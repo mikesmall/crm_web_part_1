@@ -1,5 +1,6 @@
-<h1>Welcome to show_contact.erb</h1>
+<h1>Viewing contact:</h1>
 
+<div class="contact">
 
   <h3>
     <%= "#{@contact.full_name} (#{@contact.email})" %>
@@ -8,3 +9,14 @@
   <h4>
     <%= "#{@contact.note}" %>
   </h4>
+
+</div>
+
+<!-- Your challenge: Add a delete form and submit button to the bottom of your views/show_contact.erb view. -->
+
+<h2>Delete this contact?</h2>
+
+<form action='/contacts/<%= @contact.id %>' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Yes. Delete!'>
+</form>
