@@ -1,9 +1,17 @@
 body {
+  margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+  background-color: white;
 }
 
 header {
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
   color: white;
 }
 
@@ -12,31 +20,57 @@ header {
 }
 
 h1 {
-
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid white;
 }
 
 nav li {
   background-color: lightgray;
+  font-size: 30px;
+  width: 100%;
+  border: 1px solid white;
+  font-weight: bold;
+  padding: 12px;
+  margin: 0;
+}
+
+.contact_list_header {
+  background-color: #FF7261;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+
 }
 
 ul {
-
-}
-
-.contact-list-header {
-  background-color: #FF7261;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
   background-color: #00E8D4;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 main {
   color: black;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
 footer {
+  width: 100%;
+  text-align: center;
   color: white;
   background-color: black;
 }
