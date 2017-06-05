@@ -1,17 +1,19 @@
 <div class="contact_list_header">
-  <h2>There are <%= Contact.count %> contacts:</h2>
+  <h2>There are <span><%= Contact.count %></span> contacts:</h2>
 </div>
 
 <ul>
   <% @contacts.each do |contact|%>
     <li>
-      <p>
-      <%= "Name: #{contact.full_name}" %>
-      <br>
-      <%= "Email: #{contact.email}" %>
-      <br>
-      <%= "Note: #{contact.note}" %>
-      </p>
+      <div class="contact">
+        <h3>
+          <%= "#{contact.full_name} (#{contact.email})" %>
+        </h3>
+        <h4>
+          <%= "#{contact.note}" %>
+        </h4>
+        <a href="#">Edit</a> | <a href="#">Delete</a>
+      </div>
     </li>
   <% end %>
 </ul>
