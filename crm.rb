@@ -12,7 +12,8 @@ get '/contacts' do
 end#contacts
 
 get '/contacts/:id' do
-  # instructions for how to handle requests to this route will go here
+  # params[:id] contains the id from the URL
+  @contact = Contact.find(params[:id].to_i)
   erb :show_contact
 end
 
