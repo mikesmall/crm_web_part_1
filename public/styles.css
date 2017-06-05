@@ -1,0 +1,42 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+header {
+  color: white;
+}
+
+.title {
+  background-color: #515151;
+}
+
+h1 {
+
+}
+
+nav li {
+  background-color: lightgray;
+}
+
+ul {
+
+}
+
+.contact-list-header {
+  background-color: #FF7261;
+}
+
+li {
+  background-color: #00E8D4;
+}
+
+main {
+  color: black;
+
+}
+
+footer {
+  color: white;
+  background-color: black;
+}
