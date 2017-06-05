@@ -11,24 +11,33 @@ get '/contacts' do
   erb :contacts
 end#contacts
 
+get '/contacts/new' do
+  erb :add_contact
+  # redirect to ('/add_contact')
+end#contacts/new
+
 get '/contacts/:id' do
-  @contact = Contact.where(:id =>params[:id]).first
+  @contact = Contact.find_by(:id =>params[:id])
   if @contact
     erb :show_contact
   else
     erb :not_found
   end#if/else
-end
+end#contacts/:id
+
+
 
 get '/about' do
   erb :about
 end#about
 
+post '/contacts' do
+  puts params
+end#contacts
+
 after do
   ActiveRecord::Base.connection.close
 end#after
-
-
 
 
 
