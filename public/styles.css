@@ -117,8 +117,9 @@ footer {
   padding: 24px;
 }
 
-.not_found {
+.not_found, .show_contact {
   width: 80%;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 60px;

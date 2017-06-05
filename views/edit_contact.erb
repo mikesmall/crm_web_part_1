@@ -1,10 +1,25 @@
-<h1>Edit a Contact</h1>
+<div class="show_contact">
 
-<form action='/contacts/<%= @contact.id %>' method='post'>
-  <input type='hidden' name='_method' value='put'>
-  <input type='text' name='first_name' value='<%= @contact.first_name %>'>
-  <input type='text' name='last_name' value='<%= @contact.last_name %>'>
-  <input type='text' name='email' value='<%= @contact.email %>'>
-  <input type='text' name='note' value='<%= @contact.note %>'>
-  <input type='submit' value='Edit Contact'>
-</form>
+  <h2>Editing Contact:</h2>
+
+  <form action='/contacts/<%= @contact.id %>' method='post'>
+
+    <input type='hidden' name='_method' value='put'>
+
+    <p>First name: <input type='text' name='first_name' value='<%= @contact.first_name %>'></p>
+
+    <p>Last name: <input type='text' name='last_name' value='<%= @contact.last_name %>'></p>
+
+    <p>Email: <input type='text' name='email' value='<%= @contact.email %>'></p>
+
+    <p>Note: <input type='text' name='note' value='<%= @contact.note %>'></p>
+
+    <input type='submit' value='Save'>
+
+  </form>
+
+  <p>
+    <a href="/contacts/<%=@contact.id.to_i%>">Return to this contact's page</a>
+  </p>
+
+</div>
