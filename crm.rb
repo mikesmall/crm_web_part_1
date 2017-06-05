@@ -14,6 +14,11 @@ after do
   ActiveRecord::Base.connection.close
 end
 
+# For further practice, add a new route and view for an "about" page, where you can display a message about who made this app (you!).
+
+get '/about' do
+  erb :about
+end
 
 
 
