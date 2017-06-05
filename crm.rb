@@ -11,6 +11,11 @@ get '/contacts' do
   erb :contacts
 end#contacts
 
+get '/contacts/:id' do
+  # instructions for how to handle requests to this route will go here
+  erb :show_contact
+end
+
 get '/about' do
   erb :about
 end#about
