@@ -12,6 +12,7 @@ get '/contacts' do
 end#contacts
 
 get '/contacts/new' do
+
   erb :add_contact
   # redirect to ('/add_contact')
 end#contacts/new
@@ -25,15 +26,19 @@ get '/contacts/:id' do
   end#if/else
 end#contacts/:id
 
-
-
 get '/about' do
   erb :about
 end#about
 
 post '/contacts' do
-  puts params
-end#contacts
+  Contact.create(
+    first_name: params[:first_name],
+    last_name:  params[:last_name],
+    email:      params[:email],
+    note:       params[:note]
+  )
+  redirect to('/contacts')
+end#post-contacts
 
 after do
   ActiveRecord::Base.connection.close
