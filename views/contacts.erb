@@ -12,7 +12,9 @@
         <h4>
           <%= "#{contact.note}" %>
         </h4>
-        <a href="#">Edit</a> | <a href="#">Delete</a>
+        <a href="/contacts/<%=contact.id.to_i%>">View</a> |
+        <a href="#">Edit</a> |
+        <a href="#">Delete</a>
       </div>
     </li>
   <% end %>

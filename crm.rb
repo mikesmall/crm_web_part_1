@@ -12,9 +12,12 @@ get '/contacts' do
 end#contacts
 
 get '/contacts/:id' do
-  # params[:id] contains the id from the URL
-  @contact = Contact.find(params[:id].to_i)
-  erb :show_contact
+  @contact = Contact.where(:id =>params[:id]).first
+  if @contact
+    erb :show_contact
+  else
+    erb :not_found
+  end#if/else
 end
 
 get '/about' do
